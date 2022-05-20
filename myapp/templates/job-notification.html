@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List Of All Job</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  
+<h3 class="text-center"><strong style="color: red;">LIST OF JOB AVAILABLE</strong></h3><hr>
+<a href="{% url 'index' %}" class="btn btn-primary">Back</a>
+{% for msg in messages %}
+  <h5 style="color:yellowgreen;" class="text-center">{{msg}}</h5>
+  {% endfor %}
+  <table class="table table-bordered">
+    <thead><br>
+      <tr><br>
+        <th>Company Name</th>
+        <th>Address</th>
+        <th>Salary</th>
+        <th>Position</th>
+        <th>Vacancy</th>
+        <th>Category</th>
+        <th>Experience</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for one in uid %}
+  
+      <tr>
+        
+        <td>{{one.user.companyname}}</td>
+        <td>{{one.address}}</td>
+        <td>{{one.salary}}</td>
+        <td>{{one.position}}</td>
+        <td>{{one.vacancy}}</td>
+        <td>{{one.category}}</td>   
+        <td>{{one.experience}}</td> 
+        <td><a href="{% url 'candidate-profile' one.id  %}"><button class="btn btn-secondary"><i class=""></i>Apply</button></a></td>
+      </tr>
+    {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

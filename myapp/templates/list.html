@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List of Hr</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<h3 class="text-center"><strong style="color: red;">LIST OF HR</strong></h3><hr>
+<a href="{% url 'index' %}" class="btn btn-primary">Back</a>
+  <table class="table table-bordered">
+    <thead><br>
+      <tr><br>
+        <th>Firstname</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Company Name</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for one in uid %}
+      <tr>
+        <td>{{one.first_name}}</td>
+        <td>{{one.email}}</td>
+        <td>{{one.gender}}</td>
+        <td>{{one.companyname}}</td>
+        <td><a href="{% url 'delete_hr' one.id %}"><button class="btn btn-danger"><i class=""></i>DELETE</button></a></td>
+        <td><a href="{% url 'update_hr' one.id %}"><button class="btn btn-warning"><i class=""></i>Edit</button></a></td>
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List Of Job</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  
+<h3 class="text-center"><strong style="color: red;">LIST OF JOB CANDIDATE</strong></h3><hr>
+<a href="{% url 'index_hr' %}" class="btn btn-primary">Back</a>
+{% for msg in messages %}
+  <h5 style="color:yellowgreen;" class="text-center">{{msg}}</h5>
+  {% endfor %}
+  {% if uid %}
+  <table class="table table-bordered">
+    <thead><br>
+      <tr><br>
+        <th>Name</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Resume</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for one in uid %}
+  
+      <tr>
+        <td>{{one.name}}</td>
+        <td>{{one.dob}}</td>
+        <td>{{one.gender}}</td>
+        <td>{{one.mobile}}</td>
+        <td>{{one.email}}</td>   
+        <td>{{one.resume}}</td> 
+      </tr>
+    {% endfor %}
+      
+    </tbody>
+  </table>
+{% else %}
+<h4 class="text-center" style="color: yellowgreen;">No Candidate Have Apply Yet!!</h4>
+{% endif %}
+</div>
+
+</body>
+</html>
