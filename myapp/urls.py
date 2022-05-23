@@ -13,7 +13,7 @@ path('signup/',views.signupp,name='signup'),
 #<<<<<<<<<<<<<<<<<<<<<<<<<<< HR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
 path('index/',views.indexx,name='index_hr'),
 path('index/',views.indexx,name='index_hr'),
-path('jobcreate/',views.job_create,name='job-create'),
+path('jobcreate/',views.job_create,name='job-creates'),
 path('listjobcreate/',views.list_job,name='list-job'),
 path('jobedit/<int:pk>',views.job_edit,name='job-edit'),
 path('jobdelete/<int:pk>',views.job_delete,name='job-delete'),
@@ -22,6 +22,8 @@ path('viewcandidate/<int:pk>',views.candidate_view,name='list-candidate'),
 path('jobnotification/',views.job_notification,name='job-notifications'),
 path('candidateprofile/<int:pk>',views.candidate_profile,name='candidate-profile'),
 
+
+path('searchvenue/',views.search_venue,name='search-venue'),
 
 
 

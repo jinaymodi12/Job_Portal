@@ -77,8 +77,11 @@ def signupp(request):
         form=SignUp(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request,'Create HR Successfully!')
             return redirect('list')
         else:
+            print(form.errors)
+            messages.error(request,'Error!')
             return redirect('signup')
     else:
         return render(request,'signup.html',{'form':form1})
@@ -105,7 +108,8 @@ def job_create(request):
             messages.success(request,'JOB POST SUCCESSFULLY!')
             return redirect('list-job')
         else:
-            return redirect('/job-create/')
+            print(form.errors)
+            return redirect('job-creates')
     else:
         return render(request,'job-create.html',{'form':form1})
 
@@ -162,3 +166,10 @@ def candidate_profile(request,pk):
     else:
         return render(request,'view-job.html',{'app':form1,'uid':uid})
 
+
+
+def search_venue(request):
+    if request.method=='POST':
+        searched = request.POST['searched']
+        venues=JobPost.objects.filter(position__icontains=searched or address__icontain==searched)
+    return render(request,'search-venue.html',{'searched':searched,'venues':venues})

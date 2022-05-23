@@ -27,9 +27,10 @@ class SignUp(UserCreationForm):
         model=User
         fields=['username','first_name','email','gender','companyname']
         Widget={
+            'username': forms.TextInput(attrs={'class':'form-control'}),
             'first_name': forms.TextInput(attrs={'class':'form-control'}),
-            'email': forms.EmailField(),
-            'gender': forms.ChoiceField(),
+            'email': forms.EmailInput(attrs={'class':'form-control'}),
+            'gender': forms.Select(attrs={'class':'form-control'}),
             'companyname': forms.TextInput(attrs={'class':'form-control'}),
             
 
@@ -46,6 +47,7 @@ class JobForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class':'form-control'}),
             'salary': forms.Select(attrs={'class':'form-control'}),
             'position': forms.TextInput(attrs={'class':'form-control'}),
+            'vacancy' :forms.Select(attrs={'class':'form-control'}),
             'category': forms.Select(attrs={'class':'form-control'}),
             'experience':forms.Select(attrs={'class':'form-control'}),
             'description':forms.TextInput(attrs={'class':'form-control'}),
@@ -67,7 +69,7 @@ class candidateform(forms.ModelForm):
         Widget={
             'name': forms.TextInput(attrs={'class':'form-control'}),
             'email': forms.EmailField(),
-            'dob' : forms.DateField(),
+            'dob' : forms.DateInput(format=('%m/%d/%y'),attrs={'class':'form-control'}),
             'gender': forms.Select(attrs={'class':'form-control'}),
             'mobile': forms.TextInput(attrs={'class':'form-control'}),
             'resume' : forms.FileField()
